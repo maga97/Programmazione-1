@@ -80,14 +80,15 @@ nodoF* smembra(nodo* q) {
 	return nodof;
 }
 
-nodo* LO(nodoF* W) {
-	if(!W)
-		return 0;
-	if(W->next) {
-		W->fi = push_end(W->fi, W->next->fi.primo);
-	}
-	LO(W->next);
-	return W->fi.primo;
+nodo* LO(nodoF* w) {
+    if(!w)
+        return 0;
+    if(w->next)
+    w->fi = push_end(w->fi, w->next->fi.primo);
+    LO(w->next);
+    nodo* tmp = w->fi.primo;
+    delete(w);
+    return tmp;
 }
 main()
 {
